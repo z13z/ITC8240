@@ -1,0 +1,28 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+\title{Homework 1}
+\author{Zaza Gogia}
+
+\begin{document}
+
+\maketitle
+
+\section*{Task 1}
+Our result ciphertext is \textbf{QMNDECPJEK}.\\\\
+I have written python 3 code to solve this problem.\\ link for code is:  https://github.com/z13z/ITC8240/blob/main/HW1/Task1.py \\
+Code is quite simple and self explanatory
+I have function, called "encrypt\_cezar\_letter", that calculates letter after shifting with given key. shifted letter is calculated like this
+index in alphabet (not character) of our new letter is:\\ (our letter character index - index of 'A' + shift) mod 26\\ if we add index of character 'A' to calculated number we will get character index of shifted letter.\\ In method "encrypt\_cezar" we
+just call function "encrypt\_cezar\_letter" for every letter.\\
+For shuffle encryption I have method called "encrypt\_shuffle" it just takes message copies it creates new list and inserts letter corresponding to given shuffle array. New letter index in original message is calculated like this:
+current number in shuffle array + (how many times did we finish key length iterations) * (shuffle array length).\\
+After we got this functions working, getting ciphertext is very easy: \\
+get $S_1$ with encrypt\_cezar('BLOCKCHAIN', 9), give generated $S_1$ to function encrypt\_shuffle($S_1$, $K_{P_!}$) to calculate $P_1$, than call encrypt\_cezar($P_1$, $S_2$) to get $S_2$, and after this one I call encrypt\_shuffle($S_2$, $K_{P_2}$ to get final cyphertext
+
+\section*{Task 2}
+\subsection*1{Ciphertext is: \textbf{QZAXYLKFLSWMSMOHCALXYMEBPA}}
+\subsection*2{Index of coincidence of the plaintext is: \textbf{0.070769}}
+\subsection*3{Index of coincidence of the ciphertext is: \textbf{0.036923}}
+
+\end{document}
