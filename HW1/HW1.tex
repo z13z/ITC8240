@@ -1,5 +1,11 @@
 \documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=cyan,
+    }
 
 \title{Homework 1}
 \author{Zaza Gogia}
@@ -10,7 +16,7 @@
 
 \section*{Task 1}
 Our result ciphertext is \textbf{QMNDECPJEK}.\\\\
-I have written python 3 code to solve this problem.\\ link for code is:  https://github.com/z13z/ITC8240/blob/main/HW1/Task1.py \\
+I have written python 3 code to solve this problem.\\ link for code is on \href[]{https://github.com/z13z/ITC8240/blob/main/HW1/Task1.py}{github} \\
 Code is quite simple and self explanatory
 I have function, called "encrypt\_cezar\_letter", that calculates letter after shifting with given key. shifted letter is calculated like this
 index in alphabet (not character) of our new letter is:\\ (our letter character index - index of 'A' + shift) mod 26\\ if we add index of character 'A' to calculated number we will get character index of shifted letter.\\ In method "encrypt\_cezar" we
@@ -23,6 +29,28 @@ get $S_1$ with encrypt\_cezar('BLOCKCHAIN', 9), give generated $S_1$ to function
 \section*{Task 2}
 \subsection*1{Ciphertext is: \textbf{QZAXYLKFLSWMSMOHCALXYMEBPA}}
 \subsection*2{Index of coincidence of the plaintext is: \textbf{0.070769}}
-\subsection*3{Index of coincidence of the ciphertext is: \textbf{0.036923}}
+\subsection*3{Index of coincidence of the ciphertext is: \textbf{0.036923}}\\\\\\
+I have written python 3 code to solve this problem.\\ link for code is on
+\href{https://github.com/z13z/ITC8240/blob/main/HW1/Task2.py}{github} \\
+Main function for encryption is "encrypt\_vigenere", it cycles through the given plaintext and calls function "encrypt\_cezar\_letter" (same one that I used and explained in Task 1). I calculate shift number from key with formula: shift number = current key letter character index - character index for letter 'A'. After I call this function for each letter I have encrypted text.\\Infinal step I calculate index of coincidence with my second main function called "get\_index\_of\_coincidence". It gets dictionary of characters and their counts in plain text using function "get\_letters\_count\_dict", using this dictionary I calculate $\sum(Val_i*(Val_{i-1}))$ and divide result by (text length * (text length - 1)). After that I return result which is number of coincidence for given text. I used that function to calculate second and third subsection of given task.
 
+\section*{Task 3}
+\subsection*1{}
+Let's translate both ciphertext and plaintext to numbers:
+SURFACE $\rightarrow$ 18 20 17 5 0 2 4\\
+NJCAXTP $\rightarrow$ 13 9 2 0 23 19 15\\
+So we have function that crosses points (18, 13); (20, 9); (17, 2); (5, 0); (0, 23); (2, 19); (4, 15).
+Lets find encryption function that satisfies all the equations:\\
+$\begin{cases}$13 = a * 18 + b mod 26$\\$9 = a * 20 + b mod 26$\\$2 = a * 17 + b mod 26$\\...\end{cases}$\\
+for solving equations I use python3 script that is uploaded on \href{https://github.com/z13z/ITC8240/blob/main/HW1/Task3.py}{github}\\
+After solving this equation I got encryption key $f(x) = 11x + 23$
+
+\subsection*2{}
+NJCAXTP $\rightarrow$ 13 9 2 0 23 19 15\\
+SURFACE $\rightarrow$ 18 20 17 5 0 2 4\\
+So we have function that crosses points (13, 18); (9, 20); (2, 17); (0, 5); (23, 0); (19, 2); (15, 4).
+Lets find decryption function that satisfies all the equations:\\
+$\begin{cases}$18 = a * 13 + b mod 26$\\$20 = a * 9 + b mod 26$\\$17 = a * 2 + b mod 26$\\...\end{cases}$\\
+for solving equations I use python3 script that is uploaded on \href{https://github.com/z13z/ITC8240/blob/main/HW1/Task3.py}{github}\\
+After solving this equation I got encryption key $f(x) = 19x + 5$
 \end{document}
