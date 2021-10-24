@@ -52,5 +52,6 @@ So we have function that crosses points (13, 18); (9, 20); (2, 17); (0, 5); (23,
 Lets find decryption function that satisfies all the equations:\\
 $\begin{cases}$18 = a * 13 + b mod 26$\\$20 = a * 9 + b mod 26$\\$17 = a * 2 + b mod 26$\\...\end{cases}$\\
 for solving equations I use python3 script that is uploaded on \href{https://github.com/z13z/ITC8240/blob/main/HW1/Task3.py}{github}\\
-After solving this equation I got encryption key $f(x) = 19x + 5$
+After solving this equation I got encryption key $f(x) = 19x + 5$\\\\
+Python script for finding equation is quite simple, it just checks all the possible combinations for \textbf{a} and \textbf{b} from 0 to 26 in function $f(x)=ax+b$ and prints one that satisfies all the given points. \\Ps. I check numbers from 0 to 26 because we are in modular arithmetics and checking any number that can't be reminder of 26 won't make a sense
 \end{document}
